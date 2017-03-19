@@ -1,52 +1,47 @@
-package Monitoria;
-
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Date;
 
 public class Monitoria {
-	
-	static ArrayList <Monitor> ListaMonitores = new ArrayList <Monitor>();
-	static ArrayList <Materia> ListaMaterias = new ArrayList <Materia>();
-	
-	private static void ListarMaterias(ArrayList<Materia> listaMaterias2) {
-		System.out.println("Disciplinas disponíveis: ");
-		for(int i = 0; i < listaMaterias2.size(); i++)
-		{
-			System.out.println(i + " " +listaMaterias2.get(i).getNome());
-		}
+
+
+	private int id_monitoria;
+	private Materia materia = new Materia();
+	private ArrayList<Monitor> monitores = new ArrayList<Monitor>();
+	private Date data;
+	private String hora;
+
+	void addMonitor(Monitor monitor){
+		this.monitores.add(monitor);
+	}
+	void addMateria(String nome, String professor){
+		materia.setNome(nome);
+		materia.setProfessor(professor);
 	}
 
-	public static void main(String[] args) {
-		boolean v = true;
-		Scanner input = new Scanner(System.in);
-	
-	/*	System.out.println("add materia");
-		Materia nova = new Materia();
-		nova.AddMonitoria();
-		ListaMaterias.add(nova);
-		
-		ListarMaterias(ListaMaterias);
-		System.out.println("Indice da materia p/ adicionar um monitor: ");
-		
-		while(v){
-			int s = 0;
-			int x = input.nextInt();
-			try{				
-				ListaMaterias.get(x);
-				Monitor novo = new Monitor();
-				novo.AddMonitor();
-				ListaMaterias.get(x).monitores.add(novo);
-			}	catch(java.lang.IndexOutOfBoundsException e){
-				System.out.println("Entre com um indice valido");
-				s = 1;
-			}
-			if(s == 0)break;
-			}
-	*/	
-		}
-	
-		
+	public Materia getMateria() {
+		return materia;
+	}
+	public int getId_monitoria() {
+		return id_monitoria;
+	}
 
+	public void setId_monitoria(int id_monitoria) {
+		this.id_monitoria = id_monitoria;
+	}
 
+	public Date getData() {
+		return data;
+	}
 
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public String getHora() {
+		return hora;
+	}
+
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
 }
