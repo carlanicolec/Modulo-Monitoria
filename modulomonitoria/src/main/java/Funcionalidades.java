@@ -9,13 +9,13 @@ public class Funcionalidades extends Exception {
 
     public void criarMonitoria(Dados dados) {
         done = false;
-        Monitoria monitoria = new Monitoria();
-
         int id = 0;
         System.out.println("Insira o nome da materia: ");
         String materia = scan.nextLine();
         System.out.println("Insira o nome do professor: ");
         String professor = scan.nextLine();
+        System.out.println("Insira a sala : ");
+        String sala = scan.nextLine();
 
         do {
             try {
@@ -28,10 +28,10 @@ public class Funcionalidades extends Exception {
             }
         } while (!done);
 
-        monitoria.addMateria(materia, professor); //salvando materia em monitoria
-        monitoria.setId_monitoria(id);
-
+        Monitoria monitoria = new Monitoria(id, sala);
         Materia nova_materia = new Materia(materia, professor);
+
+        monitoria.addMateria(nova_materia); //salvando materia em monitoria
 
         dados.ListaMaterias.add(nova_materia); // salvando materia no BD
         dados.ListaMonitorias.add(monitoria);
@@ -45,7 +45,7 @@ public class Funcionalidades extends Exception {
         Monitoria monitoria_temp = null;
         do {
             try {
-                System.out.println("Insira o ID da matéria que deseja editar :"); // id desejado
+                System.out.println("Insira o ID da monitoria que deseja editar :"); // id desejado
                 id = Integer.parseInt(scan.nextLine());
                 done = true;
             } catch (NumberFormatException e) {

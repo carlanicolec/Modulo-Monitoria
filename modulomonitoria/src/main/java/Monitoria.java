@@ -5,22 +5,33 @@ public class Monitoria {
 
 
 	private int id_monitoria;
+	private String sala;
 	private Materia materia = new Materia();
 	private ArrayList<Monitor> monitores = new ArrayList<Monitor>();
 	private Date data;
 	private String hora;
 
-	void addMonitor(Monitor monitor){
+    public Monitoria() {
+    }
+
+    public Monitoria(int id_monitoria, String sala) {
+        this.id_monitoria = id_monitoria;
+        this.sala = sala;
+    }
+
+    void addMonitor(Monitor monitor){
 		this.monitores.add(monitor);
 	}
-	void addMateria(String nome, String professor){
-		materia.setNome(nome);
-		materia.setProfessor(professor);
+
+	void addMateria(Materia materia){
+        this.materia = materia;
+
 	}
 
 	public Materia getMateria() {
 		return materia;
 	}
+
 	public int getId_monitoria() {
 		return id_monitoria;
 	}
