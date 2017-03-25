@@ -1,11 +1,9 @@
 
-import java.util.ArrayList;
-
 public class Monitor {
 	private int matricula;
 	private String nome;
 	private String curso;
-	private ArrayList<Materia> materias_monitoradas = new ArrayList<Materia>();
+	private Monitoria monitoria = new Monitoria();
 
 	public Monitor(int matricula, String nome, String curso) {
 		this.matricula = matricula;
@@ -16,11 +14,11 @@ public class Monitor {
 	public Monitor() {
 	}
 
-	public void addMateria(Materia materia){
-		materias_monitoradas.add(materia);
+
+	public void printMonitor(){
+		System.out.println("Monitor: " + this.nome);
+		System.out.println("Matricula: " + this.matricula);
 	}
-
-
 	public int getMatricula() {
 		return matricula;
 	}
@@ -40,4 +38,14 @@ public class Monitor {
 		this.curso = curso;
 	}
 
+
+	public Monitoria getMonitoria() {
+		return monitoria;
+	}
+
+	public void setMonitoria(Monitoria monitoria) {
+		this.monitoria = monitoria;
+	}
 }
+
+
